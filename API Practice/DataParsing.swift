@@ -23,22 +23,21 @@ class FetchData: ObservableObject{
 }
 
 struct Response: Codable{
-    var totalResults: Int = 0
     var items: [Item] = [Item]()
 }
 
 struct Item: Codable{
-    var volumeInfo: [Info] = [Info]()
+    var volumeInfo: Info
 }
 
 struct Info: Codable{
-    var title: String?
-    var authors: String?
-    var publisher: String?
-    var publishedDate: String?
-    var description: String?
-    var buyLink: URL?
-    var link : [Link] = [Link]()
+    var title : String
+    var authors : String
+    var publisher : String?
+    var publishedDate : String?
+    var description : String?
+    var buyLink : URL?
+    var imageLinks : Link
 }
 struct Link: Codable{
     var thumbnail: URL?
@@ -47,5 +46,5 @@ struct Link: Codable{
 // add an extension to the article struct so that we can use an array of articles
 // to dinamically create List.
 extension Item: Identifiable{
-    var id: String {return title!}
+    var id: String {return volumeInfo.title}
 }

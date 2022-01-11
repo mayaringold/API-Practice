@@ -16,6 +16,7 @@
 		5A26B70827847C6B007FF894 /* API_PracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A26B70727847C6B007FF894 /* API_PracticeUITests.swift */; };
 		5ACB58AF27873BD70068B8CC /* Web View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB58AE27873BD70068B8CC /* Web View.swift */; };
 		E358DA00278C67CC0012B716 /* DataParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E358D9FF278C67CC0012B716 /* DataParsing.swift */; };
+		E358DA02278DC80B0012B716 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = E358DA01278DC80B0012B716 /* Format.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		5ACB58AE27873BD70068B8CC /* Web View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Web View.swift"; sourceTree = "<group>"; };
 		8D0B79320F26E72A01E3DB18 /* Pods-API Practice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-API Practice.release.xcconfig"; path = "Target Support Files/Pods-API Practice/Pods-API Practice.release.xcconfig"; sourceTree = "<group>"; };
 		E358D9FF278C67CC0012B716 /* DataParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParsing.swift; sourceTree = "<group>"; };
+		E358DA01278DC80B0012B716 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		E5FEE2DCDC11D227C58C0D52 /* Pods-API Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-API Practice.debug.xcconfig"; path = "Target Support Files/Pods-API Practice/Pods-API Practice.debug.xcconfig"; sourceTree = "<group>"; };
 		F0CD268981EDD75880EFA67E /* libPods-API Practice.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-API Practice.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -113,6 +115,7 @@
 				5A26B6F327847C6B007FF894 /* Info.plist */,
 				5A26B6F027847C6B007FF894 /* Preview Content */,
 				E358D9FF278C67CC0012B716 /* DataParsing.swift */,
+				E358DA01278DC80B0012B716 /* Format.swift */,
 			);
 			path = "API Practice";
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			files = (
 				5A26B6ED27847C68007FF894 /* ContentView.swift in Sources */,
 				5ACB58AF27873BD70068B8CC /* Web View.swift in Sources */,
+				E358DA02278DC80B0012B716 /* Format.swift in Sources */,
 				E358DA00278C67CC0012B716 /* DataParsing.swift in Sources */,
 				5A26B6EB27847C68007FF894 /* API_PracticeApp.swift in Sources */,
 			);

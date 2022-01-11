@@ -17,26 +17,22 @@ struct ContentView: View {
         NavigationView{
             List(fetchData.responses.items){ item in
                 NavigationLink(
-                    destination: SwiftUIWebView(url: item.volumeInfo.buyLink!), label: {
+                    destination: Format(item: item), label: {
                         HStack{
-                            /*if let image = article.urlToImage{
+                            if let image = item.volumeInfo.imageLinks.thumbnail{
                                 KFImage(image).resizable().aspectRatio(contentMode: .fit).frame(width: 100, height: 50)
                             }
                             else{
                                 Image("notfound")
                             }
                             
-                            Text(article.title!)
-                            Text(article.url!)*/
-                            
-                            KFImage(item.volumeInfo.link.thumbnail).resizable().aspectRatio(contentMode: .fit).frame(width:100, height: 50, alignment: .center)
-                            Text(item.volumeInfo.title ?? "No Title")
+                            Text(item.volumeInfo.title)
                         }
                     })
-                }
             }
         }
     }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
