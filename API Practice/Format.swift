@@ -21,8 +21,3 @@ struct Format: View {
     }
 }
 
-struct Format_Previews: PreviewProvider {
-    static var previews: some View {
-        Format(Item: item)
-    }
-}
