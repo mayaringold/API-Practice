@@ -17,6 +17,8 @@ struct Format: View {
             Text(item.volumeInfo.authors)
             Text(item.volumeInfo.description!)
             Text(item.volumeInfo.publisher!)
+            Text(item.volumeInfo.publishedDate!)
+            Text(item.volumeInfo.buyLink!)
         }
     }
 }
