@@ -7,13 +7,15 @@
 
 import SwiftUI
 
-//struct creates proper formatting for variables in 
+//creates proper formatting for variables in project, to be used in contentview
 struct Format: View {
     
     var item: Item
     
     var body: some View {
         VStack{
+            //uses variable volumeInfo to access information about a specific book
+            //volume Info refers to the struct Info, where each variable is initilized with info from the API link 
             Text(item.volumeInfo.title)
             Text(item.volumeInfo.authors)
             Text(item.volumeInfo.description!)
