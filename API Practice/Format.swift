@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//struct creates proper formatting for variables in 
 struct Format: View {
     
     var item: Item
