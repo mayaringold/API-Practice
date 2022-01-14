@@ -21,3 +21,8 @@ struct Format: View {
     }
 }
 
+struct Format_Previews: PreviewProvider {
+    static var previews: some View {
+        Format(item: Item(volumeInfo: Info(title: "", authors: "", publisher: "", publishedDate: "", description: "", buyLink: nil, imageLinks: Link(thumbnail: nil))))
+    }
+}
