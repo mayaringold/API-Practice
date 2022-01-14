@@ -5,6 +5,7 @@
 //  Created by Swope, Thomas on 12/16/21.
 //
 
+//used the provided class from Mr. Swope for our webveiw 
 import SwiftUI
 import WebKit
 
