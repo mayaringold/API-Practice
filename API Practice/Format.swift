@@ -11,19 +11,23 @@ import SwiftUI
 struct Format: View {
     
     var item: Item
+    //the item is created as a type Item as referenced from the content view
     
     var body: some View {
+       //this NavigationView, allows for all of the information to be visible on the screen in the view created in the content view
+        
         NavigationView{
             //uses variable volumeInfo to access information about a specific book
             //volume Info refers to the struct Info, where each variable is initilized with info from the API link 
-            Text(item.volumeInfo.title)
-            Text(item.volumeInfo.authors)
-            Text(item.volumeInfo.description!)
-            Text(item.volumeInfo.publisher!)
-            Text(item.volumeInfo.publishedDate!)
+            Text(item.volumeInfo.title)//displays the title for a specific volume
+            Text(item.volumeInfo.authors)//displays the author(s) for a specific volume
+            Text(item.volumeInfo.description!)//displays the book description for a specific volume
+            Text(item.volumeInfo.publisher!)//displays the publisher for a specific volume
+            Text(item.volumeInfo.publishedDate!)//displays the published date for a specific volume
             
+
             NavigationLink("Buy Me!", destination: BuyLinkView(url: URL(string: item.volumeInfo.buyLink!)))
-            
+            //This navigation link allows for the BuyLinkView to be operational, it gives acces to the BuyLinkView for the viewer to click on, it uses the url URL? created in the buyLinkView and then gets the link from the variables from the data parsing class that reference the JSON
         }
     }
 }
