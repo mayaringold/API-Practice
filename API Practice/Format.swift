@@ -14,7 +14,7 @@ struct Format: View {
     //the item is created as a type Item as referenced from the content view
     
     var body: some View {
-       //this NavigationView, allows for all of the information to be visible on the screen in the view created in the content view
+       //this NavigationView allows for all of the information to be visible on the screen in the view created in the content view
         
         NavigationView{
             //uses variable volumeInfo to access information about a specific book

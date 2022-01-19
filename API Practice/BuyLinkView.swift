@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BuyLinkView: View {
-    //makes the BuyLink able to be viewed
+    //makes the BuyLink able to be seen
     
     let url: URL?
     //declares a variable with type URL? which is used in the format class
