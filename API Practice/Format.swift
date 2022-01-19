@@ -22,7 +22,7 @@ struct Format: View {
             Text(item.volumeInfo.publisher!)
             Text(item.volumeInfo.publishedDate!)
             
-            NavigationLink("Buy Me!", destination: BuyLinkView(url: item.volumeInfo.buyLink!))
+            NavigationLink("Buy Me!", destination: BuyLinkView(url: URL(string: item.volumeInfo.buyLink!)))
             
         }
     }

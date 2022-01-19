@@ -8,19 +8,23 @@
 import SwiftUI
 
 struct BuyLinkView: View {
+    //makes the BuyLink able to be viewed
     
     let url: URL?
+    //declares a variable with type URL?
     
     var body: some View{
         
         SwiftUIWebView(url: url)
+        //makes it so that the BuyLink is able to be used
     }
 }
 
 struct BuyLinkView_Previews: PreviewProvider {
     static var previews: some View {
         BuyLinkView(url: URL(string: "https://www.google.com"))
-        //error because something is a URL that should be a string
+        //preview view passed google as a string prior to reciving other links
+        
     }
 }
 
