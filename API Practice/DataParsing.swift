@@ -9,15 +9,25 @@ class FetchData: ObservableObject{
         let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=search-terms&key=AIzaSyCOUuJ0zi8KrMzvGN7LhJMtlqWjOaqKPjc")!
         
         URLSession.shared.dataTask(with: url) { (data, response, errors) in
-            guard let data = data else {return}
+            guard let data = data else {
+                print("not good")
+                print(errors?.localizedDescription)
+                return}
+            
+            guard let dataAsString = String(data: data, encoding: .utf8) else{return}
+            print(dataAsString)
             
             let decoder = JSONDecoder()
             if let response = try? decoder.decode(Response.self, from: data) {
                 DispatchQueue.main.async {
                     self.responses = response
+                    print("*")
+                    print(self.responses)
                 }
+                
             }
-            
+            else{print("failed")}
+
         }.resume()
     }
 }
@@ -36,7 +46,7 @@ struct Info: Codable{
     var publisher : String?
     var publishedDate : String?
     var description : String?
-    var buyLink : URL?
+    var buyLink : String?
     var imageLinks : Link
 }
 struct Link: Codable{
