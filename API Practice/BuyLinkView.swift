@@ -16,7 +16,7 @@ struct BuyLinkView: View {
     var body: some View{
         
         SwiftUIWebView(url: url)
-        //makes it so that the BuyLink is able to be used
+        //makes it so that the BuyLink is able to be used in the new view
     }
 }
 
