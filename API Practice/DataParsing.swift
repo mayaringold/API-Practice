@@ -10,6 +10,7 @@ class FetchData: ObservableObject{
         
         URLSession.shared.dataTask(with: url) { (data, response, errors) in
             guard let data = data else {
+                print("not good")
                 print(errors?.localizedDescription)
                 return}
             
@@ -21,9 +22,13 @@ class FetchData: ObservableObject{
             if let response = try? decoder.decode(Response.self, from: data) {
                 DispatchQueue.main.async {
                     self.responses = response
+                    print("*")
+                    print(self.responses)
                 }
+                
             }
-            
+            else{print("failed")}
+
         }.resume()
     }
 }
@@ -42,7 +47,7 @@ struct Info: Codable{
     var publisher : String?
     var publishedDate : String?
     var description : String?
-    var buyLink : URL?
+    var buyLink : String?
     var imageLinks : Link
 }
 struct Link: Codable{

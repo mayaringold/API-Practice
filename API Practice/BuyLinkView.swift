@@ -19,7 +19,7 @@ struct BuyLinkView: View {
 
 struct BuyLinkView_Previews: PreviewProvider {
     static var previews: some View {
-        BuyLinkView(url: "https://www.google.com/?safe=active&ssui=on")
+        BuyLinkView(url: URL(string: "https://www.google.com"))
         //error because something is a URL that should be a string
     }
 }
