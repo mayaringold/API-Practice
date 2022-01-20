@@ -22,9 +22,12 @@ struct ContentView: View {
                         HStack{
                             
                             if let image = item.volumeInfo.imageLinks.thumbnail{
-                                KFImage(URL(string: image))
+                                let replaced = image.replacingOccurrences(of: "http", with: "https")
+
+                                KFImage(URL(string: replaced))
                             }
                             else{
+                                
                                 Image("notfound").resizable().aspectRatio(contentMode: .fit).frame(width: 100, height: 50)
                             }
                             //Image("notfound").resizable().aspectRatio(contentMode: .fill).frame(width:100, height: 50)

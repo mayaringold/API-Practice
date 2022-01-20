@@ -1,3 +1,9 @@
+//
+//  Format.swift
+//  API Practice
+//
+//  Created by Jonathan Miller (student LM) on 1/4/22.
+//
 import Foundation
 
 class FetchData: ObservableObject{
@@ -17,7 +23,6 @@ class FetchData: ObservableObject{
             }
             
             guard let dataAsString = String(data: data, encoding: .utf8) else{return}
-            
             print(dataAsString)
             
             let decoder = JSONDecoder()
