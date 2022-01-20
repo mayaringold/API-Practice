@@ -6,13 +6,15 @@ class FetchData: ObservableObject{
     
     init(){
         
-        let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=search-terms&key=AIzaSyCOUuJ0zi8KrMzvGN7LhJMtlqWjOaqKPjc")!
-        
+        let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=murder-terms&key=AIzaSyCOUuJ0zi8KrMzvGN7LhJMtlqWjOaqKPjc")!
+        //print("hi")
         URLSession.shared.dataTask(with: url) { (data, response, errors) in
             guard let data = data else {
                 print("not good")
                 print(errors?.localizedDescription)
-                return}
+                return
+                
+            }
             
             guard let dataAsString = String(data: data, encoding: .utf8) else{return}
             
@@ -22,8 +24,6 @@ class FetchData: ObservableObject{
             if let response = try? decoder.decode(Response.self, from: data) {
                 DispatchQueue.main.async {
                     self.responses = response
-                    print("*")
-                    print(self.responses)
                 }
                 
             }
@@ -43,15 +43,16 @@ struct Item: Codable{
 
 struct Info: Codable{
     var title : String
-    var authors : String
+    var authors : [String]?
     var publisher : String?
     var publishedDate : String?
     var description : String?
     var buyLink : String?
-    var imageLinks : Link
+    var imageLinks: Link
 }
+
 struct Link: Codable{
-    var thumbnail: URL?
+    var thumbnail: String?
 }
 
 // add an extension to the article struct so that we can use an array of articles
@@ -59,3 +60,4 @@ struct Link: Codable{
 extension Item: Identifiable{
     var id: String {return volumeInfo.title}
 }
+
