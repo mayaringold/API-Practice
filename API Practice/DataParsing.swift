@@ -11,7 +11,7 @@ class FetchData: ObservableObject{
     @Published var responses: Response = Response()
     
     init(){
-        
+        //creates a url variable which holds the API which was a string as type URL
         let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=genre:murder-mystery&key=AIzaSyCOUuJ0zi8KrMzvGN7LhJMtlqWjOaqKPjc")!
         //print("hi")
         URLSession.shared.dataTask(with: url) { (data, response, errors) in

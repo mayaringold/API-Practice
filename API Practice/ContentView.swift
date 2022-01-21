@@ -15,7 +15,7 @@ struct ContentView: View {
     
     var body: some View {
         
-        //Navigation view allows for all items in the response array to be displayed
+        //Navigation view
         NavigationView{
           //places the items in a list using the navigation view
             List(fetchData.responses.items){ item in
