@@ -6,6 +6,24 @@
 //
 
 import SwiftUI
+import struct Kingfisher.KFImage
+
+func authors_Format(authors: [String])->String{
+    
+    var new = ""
+    var count = 0
+    
+    for author in authors{
+        if count != authors.count - 1{
+            new += author + ", "
+        }
+        else{
+            new += author
+        }
+        count += 1
+    }
+    return new
+}
 
 //creates proper formatting for variables in project, to be used in contentview
 struct Format: View {
@@ -16,24 +34,45 @@ struct Format: View {
     var body: some View {
        //this NavigationView allows for all of the information to be visible on the screen in the view created in the content view
         
-        NavigationView{
-            //uses variable volumeInfo to access information about a specific book
-            //volume Info refers to the struct Info, where each variable is initilized with info from the API link 
-            Text(item.volumeInfo.title)//displays the title for a specific volume
-            Text(item.volumeInfo.authors)//displays the author(s) for a specific volume
-            Text(item.volumeInfo.description!)//displays the book description for a specific volume
-            Text(item.volumeInfo.publisher!)//displays the publisher for a specific volume
-            Text(item.volumeInfo.publishedDate!)//displays the published date for a specific volume
+        //uses variable volumeInfo to access information about a specific book
+        //volume Info refers to the struct Info, where each variable is initilized with info from the API link
+        VStack{/*
+            if let image = item.volumeInfo.imageLinks.thumbnail{
+                let replaced = image.replacingOccurrences(of: "http", with: "https")
+                KFImage(URL(string: replaced)).resizable().aspectRatio(contentMode: .fit).frame(width: 200, height: 400)
+                
+            }
+            else{
+                Image("notfound").resizable().aspectRatio(contentMode: .fit).frame(width: 100, height: 50)
+            }*/
+            Text(item.volumeInfo.title).font(.system(size: 20, weight: .bold))
+                .frame(width: 300).multilineTextAlignment(.center)
+            Text("")
+            if let d = item.volumeInfo.description{
+                (Text("Description: ").bold() + Text(d).font(.system(size: 14)).italic()).frame(width: 300, alignment: .topLeading)
+            }
             
-
-            NavigationLink("Buy Me!", destination: BuyLinkView(url: URL(string: item.volumeInfo.buyLink!)))
-            //This navigation link allows for the BuyLinkView to be operational, it gives acces to the BuyLinkView for the viewer to click on, it uses the url URL? created in the buyLinkView and then gets the link from the variables from the data parsing class that reference the JSON
+            if let a = item.volumeInfo.authors{
+                if a.count == 1{
+                    (Text("Author: ").bold() + Text(authors_Format(authors: a)).font(.system(size: 14)).italic()).frame(width: 300, alignment: .topLeading)
+                }
+                else{
+                    (Text("Authors: ").bold() + Text(authors_Format(authors: a)).font(.system(size: 14)).italic()).frame(width: 300, alignment: .topLeading)
+                }
+            }
+            if let p = item.volumeInfo.publisher{
+                (Text("Publisher: ").bold() + Text(p).font(.system(size: 14)).italic()).frame(width: 300, alignment: .topLeading)
+            }
+            if let pd = item.volumeInfo.publishedDate{
+                (Text("Published Date: ").bold() + Text(pd).font(.system(size: 14)).italic()).frame(width: 300, alignment: .topLeading)
+            }
+            Spacer()
         }
     }
 }
 struct Format_Previews: PreviewProvider {
     static var previews: some View {
-        Format(item: Item(volumeInfo: Info(title: "", authors: "", publisher: "", publishedDate: "", description: "", buyLink: nil, imageLinks: Link(thumbnail: nil))))
+        Format(item: Item(volumeInfo: Info(title: "", authors: [""], publisher: "", publishedDate: "", description: "", buyLink: nil, imageLinks: Link(thumbnail: nil))))
     }
 }
 
