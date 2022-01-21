@@ -11,15 +11,15 @@ class FetchData: ObservableObject{
     @Published var responses: Response = Response()
     
     init(){
-        //sets a url variable equal to type URL from the string which is the API for this project
-        let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=genre:murder&key=AIzaSyCOUuJ0zi8KrMzvGN7LhJMtlqWjOaqKPjc")!
         
+        let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=genre:murder-mystery&key=AIzaSyCOUuJ0zi8KrMzvGN7LhJMtlqWjOaqKPjc")!
         //print("hi")
         URLSession.shared.dataTask(with: url) { (data, response, errors) in
             guard let data = data else {
                 print("not good")
                 print(errors?.localizedDescription)
                 return
+                
             }
             
             guard let dataAsString = String(data: data, encoding: .utf8) else{return}
