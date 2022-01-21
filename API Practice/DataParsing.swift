@@ -12,7 +12,7 @@ class FetchData: ObservableObject{
     
     init(){
         
-        let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=murder-terms&key=AIzaSyCOUuJ0zi8KrMzvGN7LhJMtlqWjOaqKPjc")!
+        let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=genre:murder&key=AIzaSyCOUuJ0zi8KrMzvGN7LhJMtlqWjOaqKPjc")!
         //print("hi")
         URLSession.shared.dataTask(with: url) { (data, response, errors) in
             guard let data = data else {

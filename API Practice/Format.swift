@@ -34,7 +34,7 @@ struct Format: View {
         
         //uses variable volumeInfo to access information about a specific book
         //volume Info refers to the struct Info, where each variable is initilized with info from the API link
-        VStack{
+        VStack{/*
             if let image = item.volumeInfo.imageLinks.thumbnail{
                 let replaced = image.replacingOccurrences(of: "http", with: "https")
                 KFImage(URL(string: replaced)).resizable().aspectRatio(contentMode: .fit).frame(width: 200, height: 400)
@@ -42,7 +42,7 @@ struct Format: View {
             }
             else{
                 Image("notfound").resizable().aspectRatio(contentMode: .fit).frame(width: 100, height: 50)
-            }
+            }*/
             Text(item.volumeInfo.title).font(.system(size: 20, weight: .bold))
                 .frame(width: 300).multilineTextAlignment(.center)
             Text("")

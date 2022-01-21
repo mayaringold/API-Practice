@@ -30,7 +30,6 @@ struct ContentView: View {
                                 
                                 Image("notfound").resizable().aspectRatio(contentMode: .fit).frame(width: 100, height: 50)
                             }
-                            //Image("notfound").resizable().aspectRatio(contentMode: .fill).frame(width:100, height: 50)
                             Text(item.volumeInfo.title)
                         }
                     })
