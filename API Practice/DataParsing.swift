@@ -13,7 +13,8 @@ class FetchData: ObservableObject{
     init(){
         //creates a url variable which holds the API which was a string as type URL
         let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=genre:murder-mystery&key=AIzaSyCOUuJ0zi8KrMzvGN7LhJMtlqWjOaqKPjc")!
-        //print("hi")
+        
+        //getting the JSON and if things go wrong it will print the error
         URLSession.shared.dataTask(with: url) { (data, response, errors) in
             guard let data = data else {
                 print("not good")
@@ -33,6 +34,7 @@ class FetchData: ObservableObject{
                 }
                 
             }
+            //if this does not work, it will print failed
             else{print("failed")}
             
         }.resume()//without this, the code would not run, this makes the code continue after all of the stuff above
